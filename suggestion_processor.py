@@ -36,7 +36,7 @@ def process_suggestion(conn, new_suggestion):
             print(ratio)
         #####
         ratio_average = ratio_sum / row_count
-        print("ratio_average: " + ratio_average)
+        print("ratio_average: " + str(ratio_average))
         if ratio_average > best_ratio_average:
             best_ratio_average = ratio_average
             best_group_id = group[0]

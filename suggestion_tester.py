@@ -4,14 +4,12 @@ from suggestion_processor import process_suggestion
 
 conn = sqlite3.connect('laundromat.db')
 
-sug1 = ("wash carpet", str(datetime.datetime.now()), "Joe Schmoe")
-process_suggestion(conn, sug1)
-sug1 = ("wash carpet", str(datetime.datetime.now()), "Joe Schmoe")
-process_suggestion(conn, sug1)
-sug1 = ("wash cerpet", str(datetime.datetime.now()), "Joe Schmoe")
-process_suggestion(conn, sug1)
-sug1 = ("wash floor", str(datetime.datetime.now()), "Joe Schmoe")
-process_suggestion(conn, sug1)
+# the test file is just one string per line
+file = open("test_data/shwe.txt", "r")
+for line in file:
+    #strip the line since we don't want trailing whitespace
+    sug = (line.strip(), str(datetime.datetime.now()), "Joe Schmoe")
+    process_suggestion(conn, sug)
 
 c_suggestions = conn.cursor()
 c_suggestions.execute("SELECT * FROM suggestions")
